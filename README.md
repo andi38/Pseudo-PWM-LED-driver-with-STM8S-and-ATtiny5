@@ -2,7 +2,7 @@
 
 One day my LED controller with remote broke. Since near the LED a Raspberry Pi is running I decided instead of buying a new controller to use the Pi‘s PWM. Not long I had to discover that the light was flickering since the Pi is not exactly running an RTOS.
 
-That is how I was about using a so far unused STM8S103 controlled by one of the Pi‘s GPIO: One 20ms pulse means LED off, two pulses mean LED at 50% power, and three pulses command full power to the LED. The output is passed through a MOSFET to the 12V LED strip. The Pi gets its commands from a Zigbee remote pushbutton dimmer I had laying around.
+That is how I was about using a so far unused STM8S103 controlled by one of the Pi‘s GPIO: One 20ms pulse means LED off, two pulses mean LED at 50% power, and three pulses command full power to the LED. The output is passed through a MOSFET to the 12V LED strip. The Pi gets its commands from a Zigbee remote pushbutton dimmer I had lying around.
 
 The STM8S code uses two timers: TIM4 to generate pseudo (50% duty cycle) PWM at 150 Hz, TIM2 to facilitate the receive window for up to three pulses from the Pi, both to trigger interrupts.
 
