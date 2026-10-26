@@ -6,7 +6,7 @@ That is how I was about using a so far unused STM8S103 controlled by one of the 
 
 The STM8S code uses two timers: TIM4 to generate pseudo (50% duty cycle) PWM at 150 Hz, TIM2 to facilitate the receive window for up to three pulses from the Pi, both to trigger interrupts.
 
-Since I like the small is beautiful way, once I discovered the ATtiny4/5 at http://www.herbert-dingfelder.de/?page_id=499 in a still hand-solderable SOP23 housing with one timer, 512 bytes flash, and 32 bytes RAM that was the way to go. The ATtiny code uses the one timer and its interrupt for 4ms ticks that result in 125 Hz „PWM“ with again 50% duty cycle. With this timing the input capture is performed as well with the help of another interrupt.
+Since I like the small is beautiful way, once I discovered the ATtiny4/5 at http://www.herbert-dingfelder.de/?page_id=499 in a still hand-solderable SOT23-6 housing with one timer, 512 bytes flash, and 32 bytes RAM that was the way to go. The ATtiny code uses the one timer and its interrupt for 4ms ticks that result in 125 Hz „PWM“ with again 50% duty cycle. With this timing the input capture is performed as well with the help of another interrupt.
 
 Once playing with the ATtiny the power consumption raised my interest, although not driven by battery at all. I included sending the ATtiny to idle mode, and reducing the system clock to 128 kHz instead of the default 1 MHz.
 
